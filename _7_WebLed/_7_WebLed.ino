@@ -65,7 +65,7 @@ void loop() {
       "<html><head><title>WebLed</title></head>"
       "<body>LED Status: $S "
       "<a href=\"/?status=$S\"><input type=\"button\" value=\"$S\"></a>"
-      "</form></body>"      
+      "</body></html>"      
       ), statusLabel, buttonLabel, buttonLabel);
     ether.httpServerReply(bfill.position());
   }

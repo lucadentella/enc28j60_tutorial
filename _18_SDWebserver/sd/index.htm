@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Homepage</title>
+<script src="jquery.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+  updateUptime();
+  setInterval(updateUptime, 30000);
+
+});
+function updateUptime() {
+  $.get( "uptime.ino", function(data) {
+    $("#uptime").html(data/1000);
+  });
+}
+</script>
+</head>
+<body>
+<h1>Welcome to SDWebserver</h1>
+<img src="photo.jpg"></img>
+<p>Uptime: <span id="uptime"></span>s</p>
+</body>
+</html>

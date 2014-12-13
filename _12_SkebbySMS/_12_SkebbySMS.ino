@@ -35,7 +35,7 @@ void setup () {
   } else Serial.println("DHCP configuration done:"); 
  
   ether.printIp("IP Address:\t", ether.myip);
-  ether.printIp("Netmask:\t", ether.mymask);
+  ether.printIp("Netmask:\t", ether.netmask);
   ether.printIp("Gateway:\t", ether.gwip);
   
   if (!ether.dnsLookup(website)) {

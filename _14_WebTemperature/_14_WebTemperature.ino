@@ -44,7 +44,7 @@ void setup () {
   
   Serial.println();
   ether.printIp("IP Address:\t", ether.myip);
-  ether.printIp("Netmask:\t", ether.mymask);
+  ether.printIp("Netmask:\t", ether.netmask);
   ether.printIp("Gateway:\t", ether.gwip);
   ether.printIp("Website IP:\t", ether.hisip);
   Serial.println();

@@ -19,7 +19,7 @@ void setup () {
     Serial.println("DHCP configuration done");
  
   ether.printIp("IP Address:\t", ether.myip);
-  ether.printIp("Netmask:\t", ether.mymask);
+  ether.printIp("Netmask:\t", ether.netmask);
   ether.printIp("Gateway:\t", ether.gwip);
   
   Serial.println();

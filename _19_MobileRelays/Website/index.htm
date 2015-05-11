@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <title>Arduino Relays</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="jqmob.css">
+    <script src="jquery.js"></script>
+    <script src="jqmob.js"></script>
+	
+	<script>
+	
+		$(document).ready(function() {
+		
+			// search for all the select elements and associate the event handler
+			$("select").each(function(index) {
+				
+				// event handler, call the page to change the relay status
+				$(this).change(function() {
+					
+					var selectElement = $(this);
+					var relayNumber = selectElement.attr("name");
+					var relayStatus = selectElement.val();
+					var parameters = relayNumber + "|" + relayStatus;
+					console.log("Calling Arduino with the following parameters: " + parameters);
+					
+					$.get("switch.ino?" + parameters, function() {
+						console.log("Call OK :)");
+					})
+					.fail(function() {
+						console.log("Call KO :(");
+					});
+				});
+			});
+		});
+	
+	</script>
+</head>
+<body>
+    <div data-role="page">
+ 
+        <div data-role="header" data-position="fixed">
+            <h1>Arduino Relays</h1>
+        </div><!-- /header -->
+ 
+        <div data-role="content">
+		
+			<form>
+			    <div class="ui-field-contain">
+			        <label for="2">Relay 1:</label>
+			        <select name="2" id="2" data-role="flipswitch">
+			            <option value="0">OFF</option>
+			            <option value="1">ON</option>
+			        </select>
+			    </div>
+			    <div class="ui-field-contain">
+			        <label for="3">Relay 2:</label>
+			        <select name="3" id="3" data-role="flipswitch">
+			            <option value="0">OFF</option>
+			            <option value="1">ON</option>
+			        </select>
+			    </div>			
+			</form>
+        </div><!-- /content -->
+ 
+        <div data-role="footer" data-position="fixed">
+            <h4>Luca Dentella, 2015</h4>
+        </div><!-- /footer -->
+ 
+    </div><!-- /page -->
+</body>
+</html>
